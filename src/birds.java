@@ -32,6 +32,7 @@ public class birds {
         System.out.println(hm);
 
 
+
     }
 
 
@@ -76,5 +77,4 @@ public class birds {
         }
     return freq;
     }
-
 }

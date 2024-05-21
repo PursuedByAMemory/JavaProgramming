@@ -15,6 +15,7 @@ public class countValleys {
     }
 
     public String[] cvFunc(String[] arr, int s){
+        String result[];
         ArrayList<Character> al = new ArrayList<>();
         int dCount = 0;
         int uCount = 0;
@@ -27,7 +28,7 @@ public class countValleys {
         }
         String dCountS = Integer.toString(dCount);
         String uCountS = Integer.toString(uCount);
-        String[] result = {dCountS,uCountS};
+        result = new String[]{dCountS, uCountS};
         return result;
     }
 }

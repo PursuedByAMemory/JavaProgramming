@@ -12,6 +12,7 @@ public class chocFactoryAL {
         ArrayList<Integer> result= c.chocALFunc(al);
         for(int i = 0; i < result.size();i++) {
             System.out.println(result.get(i));
+            System.out.println();
         }
     }
 
