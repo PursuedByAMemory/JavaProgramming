@@ -28,6 +28,8 @@ public class tcs5 {
         }
         ArrayList<Integer> noDups = new ArrayList<>(hs);
         ArrayList<Integer> freq = new ArrayList<>();
+
+
         for(int i = noDups.size() - 1; i > 0 ; i--){
             for(int j = 0; j < i; j++){
                 if(noDups.get(j) > noDups.get(j+1)){
@@ -37,6 +39,8 @@ public class tcs5 {
                 }
             }
         }
+
+
         for(int i = arr.length-1; i > 0 ; i--){
             for(int j = 0 ; j < i;j++){
                 if(arr[j]>arr[j+1]){
@@ -46,6 +50,9 @@ public class tcs5 {
                 }
             }
         }
+
+
+
         for(int i = 0; i < arr.length; i++){
             if(checked[i]){
                 continue;
