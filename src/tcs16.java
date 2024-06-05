@@ -29,14 +29,17 @@ public class tcs16 {
             }
         }
         ArrayList<Integer> sorted = new ArrayList<>();
-        ArrayList<Integer> copyAL = new ArrayList<>();
+        ArrayList<Integer> og = new ArrayList<>();
         ArrayList<Integer> rank = new ArrayList<>();
         for(int i = 0; i < arr.length; i++){
-            copyAL.add(copy[i]);
+            og.add(copy[i]);
             sorted.add(arr[i]);
         }
-        for(int i =0; i < copyAL.size(); i++){
-            rank.add(sorted.indexOf(copy[i]));
+//        for(int i =0; i < copyAL.size(); i++){
+//            rank.add(sorted.indexOf(copy[i]));
+//        }
+        for(int i =0; i < og.size() ;i++){
+            rank.add(sorted.indexOf(og.get(i)));
         }
         return rank;
     }
