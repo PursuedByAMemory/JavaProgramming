@@ -46,9 +46,6 @@ public class tcs15 {
         for(int i = 0; i < arr.length; i++){
             hs.add(arr[i]);
         }
-
-
-
         ArrayList<Integer> noDups = new ArrayList<>(hs);
         ArrayList<Integer> freq = new ArrayList<>();
         boolean checked[] = new boolean[arr.length];
