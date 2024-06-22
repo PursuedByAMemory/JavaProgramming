@@ -1,53 +1,104 @@
 public class LinkedList {
-    class Node{
-        int val;
-        Node next;  //Node means the var "next" points to a node or is a pointer
-        Node(int val){
-            this.val = val;
+    public static void main(String[] args){
+        LinkedList ll = new LinkedList(1000);
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+
+        //ll.removeEnd();
+        System.out.println(ll.get(1).value);
+        //ll.printNode();
+    }
+    Node head;
+    Node tail;
+    int length;
+    public Node get(int index){
+        if(index<0||index>length){
+            return null;
+        }else{
+            Node temp = head;
+            for(int i = 0; i < index; i++){
+                temp = temp.next;
+            }
+            return temp;
         }
     }
-    private Node head; //of type node meaning, it points to a node
-    private Node tail; //of type node meaning it points to a node
-    private int length;
-    public LinkedList(int val){
-        Node node1 = new Node(val);
-        head = node1;
-        tail = node1;
-        length = 1;
+    LinkedList(int value){
+        Node newNode = new Node(value);
+        head = newNode;
+        tail = newNode;
+        length=1;
     }
-    public void printList(){
+    public void printNode(){
         Node temp = head;
-        while(temp != null){
-            System.out.println(temp.val);
+        for(int i = 0; i < length; i++){
+            System.out.println(temp.value);
             temp = temp.next;
         }
     }
-    public void getHead(){
-        System.out.println("Head: "+head.val);
+    public class Node{
+        int value;
+        Node next;
+        Node(int value){
+            this.value = value;
+        }
     }
-    public void getTail(){
-        System.out.println("Tail: "+tail.val);
-    }
-    public void getLength(){
-        System.out.println("Length "+length);
-    }
-    public void append(int val){
-        Node newNode = new Node(val);
+    public void prepend(int value){
+        Node nn = new Node(value);
         if(length == 0){
-            head = newNode;
-            tail = newNode;
+            head = nn;
+            tail = nn;
         }else{
-            tail.next = newNode;
-            tail = newNode;
+            nn.next = head;
+            head = nn;
         }
         length++;
     }
-    public static void main(String[] args) {
-        LinkedList LL1 = new LinkedList(8); //Creating a new LinkedList || LL1 can point to a linkedList || LL1 is variable of type LinkedList
-        LL1.append(2);
-        LL1.getHead();
-        LL1.getTail();
-        LL1.getLength();
-        LL1.printList();
+    public void append(int value){
+        Node nn = new Node(value);
+        if(length == 0){
+            head = nn;
+            tail = nn;
+        }else{
+            tail.next = nn;
+            tail = nn;
+        }
+        length++;
+    }
+    public Node removeBeg(){
+        if(length==0){
+            return null;
+        }else{
+            Node temp = head;
+            head = head.next;
+            temp.next = null;
+            length--;
+            if(length==0){
+                head = null;
+                tail = null;
+            }
+            return temp;
+        }
+    }
+    public Node removeEnd(){
+        if(length==0) {
+            return null;
+        }else{
+            Node temp = head;
+            Node pre = head;
+            while(temp.next!=null){
+                pre = temp;
+                temp= temp.next;
+            }
+            tail = pre;
+            tail.next = null;
+            length--;
+            if(length==0){
+                head = null;
+                tail = null;
+            }
+            return temp;
+        }
     }
 }
