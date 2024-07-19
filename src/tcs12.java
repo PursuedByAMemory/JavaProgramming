@@ -25,7 +25,9 @@ public class tcs12 {
             }
             for(int j = 0; j < arr.length; j++){
                 if(arr[i] == arr[j] && i!=j){
-                    al.add(arr[i]);
+                    if(!al.contains(arr[i])){
+                        al.add(arr[i]);
+                    }
                     checked[j] = true;
                 }
             }
